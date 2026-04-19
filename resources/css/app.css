@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Theme Variables ──────────────────────────────────────────────────────── */
+
+:root {
+    /* Backgrounds */
+    --bg-app: #f9fafb;
+    --bg-surface: #ffffff;
+    --bg-surface-hover: #f3f4f6;
+    --bg-border: #e5e7eb;
+    --bg-border-subtle: #f3f4f6;
+
+    /* Sidebar */
+    --sidebar-bg: #ffffff;
+    --sidebar-border: #f3f4f6;
+    --sidebar-text: #374151;
+    --sidebar-text-muted: #9ca3af;
+    --sidebar-item-hover: #f3f4f6;
+    --sidebar-item-active-bg: #eef2ff;
+    --sidebar-item-active-text: #4f46e5;
+    --sidebar-item-active-icon: #4f46e5;
+    --sidebar-section-label: #9ca3af;
+
+    /* Header */
+    --header-bg: rgba(255, 255, 255, 0.85);
+    --header-border: #f3f4f6;
+    --header-icon: #6b7280;
+    --header-icon-hover-bg: #f3f4f6;
+    --header-icon-hover: #1f2937;
+    --header-divider: #e5e7eb;
+    --header-name: #1f2937;
+    --header-email: #6b7280;
+
+    /* Tooltip */
+    --tooltip-bg: #1f2937;
+    --tooltip-text: #f9fafb;
+
+    /* Dropdown */
+    --dropdown-bg: #ffffff;
+    --dropdown-border: #e5e7eb;
+    --dropdown-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 10px -5px rgba(0, 0, 0, 0.04);
+    --dropdown-item-hover: #f3f4f6;
+    --dropdown-text: #374151;
+    --dropdown-text-muted: #6b7280;
+
+    /* Text */
+    --text-primary: #111827;
+    --text-secondary: #374151;
+    --text-muted: #6b7280;
+
+    /* Accent */
+    --accent: #4f46e5;
+    --accent-light: #eef2ff;
+}
+
+.dark {
+    /* Backgrounds */
+    --bg-app: #0f1117;
+    --bg-surface: #1a1d27;
+    --bg-surface-hover: #22263a;
+    --bg-border: #2e3347;
+    --bg-border-subtle: #252939;
+
+    /* Sidebar */
+    --sidebar-bg: #151821;
+    --sidebar-border: #1e2234;
+    --sidebar-text: #c9cfe0;
+    --sidebar-text-muted: #5a6082;
+    --sidebar-item-hover: #1e2234;
+    --sidebar-item-active-bg: #1e2a4a;
+    --sidebar-item-active-text: #818cf8;
+    --sidebar-item-active-icon: #818cf8;
+    --sidebar-section-label: #3d4466;
+
+    /* Header */
+    --header-bg: rgba(21, 24, 33, 0.9);
+    --header-border: #1e2234;
+    --header-icon: #8b92b3;
+    --header-icon-hover-bg: #1e2234;
+    --header-icon-hover: #e2e8f0;
+    --header-divider: #2e3347;
+    --header-name: #e2e8f0;
+    --header-email: #6b7899;
+
+    /* Tooltip */
+    --tooltip-bg: #252939;
+    --tooltip-text: #e2e8f0;
+
+    /* Dropdown */
+    --dropdown-bg: #1a1d27;
+    --dropdown-border: #2e3347;
+    --dropdown-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 4px 10px -5px rgba(0, 0, 0, 0.3);
+    --dropdown-item-hover: #22263a;
+    --dropdown-text: #c9cfe0;
+    --dropdown-text-muted: #6b7899;
+
+    /* Text */
+    --text-primary: #e2e8f0;
+    --text-secondary: #c9cfe0;
+    --text-muted: #6b7899;
+
+    /* Accent */
+    --accent: #818cf8;
+    --accent-light: #1e2a4a;
+}
+
+/* ─── Themed Inputs ────────────────────────────────────────────────────────── */
+
+.themed-input {
+    background: var(--bg-surface);
+    border: 1px solid var(--bg-border);
+    color: var(--text-primary);
+}
+
+.themed-input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+.themed-input:focus {
+    border-color: var(--accent);
+}
+
+/* Ensure select options are themed in dark mode */
+.dark .themed-input option {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+}
+
+/* ─── Table Row Hover ──────────────────────────────────────────────────────── */
+
+.table-row-hover:hover {
+    background: var(--bg-surface-hover);
+}
+
+/* ─── Action Buttons ───────────────────────────────────────────────────────── */
+
+.action-btn:hover {
+    background: var(--btn-hover-bg);
+}
+
+/* ─── Role Badge (dark mode aware) ────────────────────────────────────────── */
+
+.dark .role-badge {
+    background: var(--role-bg-dark) !important;
+    color: var(--role-color-dark) !important;
+}
+
+/* ─── Status Badges (dark mode) ────────────────────────────────────────────── */
+
+.dark .status-active {
+    background: #14532d !important;
+    color: #86efac !important;
+}
+
+.dark .status-on-leave {
+    background: #422006 !important;
+    color: #fde68a !important;
+}
+
+.dark .status-inactive {
+    background: #450a0a !important;
+    color: #fca5a5 !important;
+}
+
+/* ─── Sidebar Tooltip ──────────────────────────────────────────────────────── */
+
+.sidebar-tooltip {
+    position: absolute;
+    left: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--tooltip-bg);
+    color: var(--tooltip-text);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    transform: translateY(-50%) translateX(-4px);
+    z-index: 100;
+}
+
+.sidebar-tooltip::before {
+    content: '';
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid transparent;
+    border-right-color: var(--tooltip-bg);
+}
+
+.sidebar-nav-item:hover .sidebar-tooltip {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* ─── Scrollbar ────────────────────────────────────────────────────────────── */
+
+.dark ::-webkit-scrollbar {
+    width: 5px;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #2e3347;
+    border-radius: 10px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #3d4466;
+}
+
+/* ─── Theme Transition ─────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+    transition-property: background-color, border-color, color;
+    transition-duration: 200ms;
+    transition-timing-function: ease;
+}
